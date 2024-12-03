@@ -11,6 +11,7 @@ export default function NewChallenge({ onDone }) {
   
   const [scope,animate]=useAnimate();
   const [selectedImage, setSelectedImage] = useState(null);
+  
   const { addChallenge } = useContext(ChallengesContext);
 
   function handleSelectImage(image) {
@@ -38,6 +39,10 @@ export default function NewChallenge({ onDone }) {
 
     onDone();
     addChallenge(challenge);
+    document.body.style.background = 'linear-gradient(#222c31, #111d32) !important' ;
+    const backdropElement = document.querySelector('.backdrop');
+    backdropElement.style.background='transparent'; // Adds the class to remove background color
+    
   }
 
   return (
